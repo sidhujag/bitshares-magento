@@ -1,0 +1,19 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+$currencyCode   = '';
+$currency       = $_order->getOrderCurrency();
+if (is_object($currency)) {
+    $currencyCode = $currency->getCurrencyCode();
+}
+?>
+<form name="Bitsharesform" method="post" action="<?php echo Mage::getBaseUrl(); ?>bitshares/redirect2bitshares.php">
+	<input type="hidden" name="order_id" value="<?php echo $orderId; ?>">
+    <input type="hidden" name="total" value="<?php echo $_order->getBaseGrandTotal(); ?>">
+      <input type="hidden" name="code" value="<?php echo $currencyCode; ?>">
+    </form>
+<script type="text/javascript">
+document.Bitsharesform.submit();
+</script>
