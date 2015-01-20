@@ -36,24 +36,22 @@ bitshares/magento-plugin
 
 # Installation
 
-1. Copy these files into your magento root directory
-2. Copy Bitshares Checkout (https://github.com/sidhujag/bitsharescheckout) files into your prestashop root directory, overwrite any existing files.
+1. Copy these files into your magento root directory.<br />
+2. Copy Bitshares Checkout (https://github.com/sidhujag/bitsharescheckout) files into your magento root directory, overwrite any existing files.<br />
 
 # Configuration
 
 1. Upload files to the root directory of your magento installation.<br />
-2. In Admin panel under "System > Configuration > Sales > Payment Methods > Bitshares":
+2. In Admin panel under "System > Configuration > Sales > Payment Methods > Bitshares":<br />
 	a. Verify that the module is enabled.
-4. Fill out config.php with appropriate information and configure Bitshares Checkout
+4. Fill out config.php with appropriate information and configure Bitshares Checkout<br />
     - See the readme at https://github.com/sidhujag/bitsharescheckout
 
 
 
 Usage
 -----
-When a shopper chooses the Bitcoin payment method, they will be presented with an order summary as the next step (prices are shown in whatever currency they've selected for shopping).  If the fullscreen option is disabled, they can pay for their order using the address shown on the screen.  Otherwise they will place their order and be redirected to bitpay.com to pay.
-
-The order status in the admin panel will be "Processing" if payment has been confirmed. 
+When a shopper chooses the Bitshares payment method, they will be redirected to Bitshares Checkout where they will pay an invoice.  Bitshares Checkout will then notify your system that the order was paid for.  The customer will be redirected back to your store.  
 
 
 Change Log
