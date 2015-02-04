@@ -1,11 +1,11 @@
 <?php
 define('ROOT', __DIR__ .DIRECTORY_SEPARATOR);
-$baseURL = 'http://www.bitsharesdemo.com/magento/';
-$accountName = 'opencartdemo';
-$rpcUser = 'user';
-$rpcPass = 'pass';
-$rpcPort = 1234;
-$demoMode = TRUE;
-$hashSalt = 'magentodemo'; // see README
-$cronToken = 'asdfsddfd3dddf43'; // see README
+define('baseURL', 'http://www.bitsharesdemo.com/magento/');
+define('accountName', 'opencartdemo');
+define('rpcUser', 'user');
+define('rpcPass', 'pass');
+define('rpcPort', '1234');
+define('demoMode ', TRUE);
+define('hashSalt', 'magentodemo');
+define('cronToken', 'asdfsddfd3dddf43');
 ?>
