@@ -72,7 +72,8 @@ function getOrderWithStatusFromCartHelper($id, $response_code)
               $ret = array (
                 "order_id" => $orderModel->getRealOrderId(),
 	              "currency" =>	$currencyCode,
-	              "order_total" =>	$orderModel->getTotalDue()
+	              "order_total" =>	$orderModel->getTotalDue(),
+                "date_added" =>	$orderModel->getCreatedAtStoreDate()
 	            );
               array_push($orders, $ret);
             }
@@ -111,7 +112,8 @@ function getOrderWithStatusFromCartHelper($id, $response_code)
           $ret = array (
             "order_id" => $id,
 	          "currency" =>	$currencyCode,
-	          "order_total" =>	$response->getTotalDue()
+	          "order_total" =>	$response->getTotalDue(),
+            "date_added" =>	$response->getCreatedAtStoreDate()
 	        );
           array_push($orders, $ret);
         }
@@ -163,9 +165,9 @@ function getOpenOrdersUser()
 		$total = $responseOrder['order_total'];
 		$total = number_format((float)$total,2);		
 		$newOrder['total'] = $total;
-		$newOrder['currency_code'] = $responseOrder['currency'];
+		$newOrder['asset'] = $responseOrder['currency'];
 		$newOrder['order_id'] = $responseOrder['order_id'];
-		$newOrder['date_added'] = 0;
+		$newOrder['date_added'] = $responseOrder['date_added'];
 		array_push($openOrderList,$newOrder);    
 	}
   echo json_encode($openOrderList);
@@ -205,6 +207,7 @@ function doesOrderExistUser($memo, $order_id)
 				$order['total'] = $total;
 				$order['asset'] = $asset;
 				$order['memo'] = $memo;	
+        $order['date_added'] = $responseOrder['date_added'];	
 				return $order;
 			}
 	}
